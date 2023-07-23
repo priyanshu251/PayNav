@@ -18,12 +18,20 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/curtain.png
-    - assets/images/settings.png
-    - assets/images/runner up.png
-    - assets/images/second runner up.png
-    - assets/images/winner.png
-    - assets/images/boywithbluetick.png
-    - assets/images/red triangle.png
-    - assets/images/green triangle.png
+    - assets/images/
+    # - assets/images/settings.png
+    # - assets/images/runner up.png
+    # - assets/images/second runner up.png
+    # - assets/images/winner.png
+    # - assets/images/boywithbluetick.png
+    # - assets/images/red triangle.png
+    # - assets/images/green triangle.png
+    # - assets/images/man_profile.png
+    # - assets/images/girl_profile.png
+    # - assets/images/boy_avatar1.png
+    # - assets/images/boy_avatar2.png
+    # - assets/images/girls_avatar1.png
+    # - assets/images/girls_avatar2.png
+    # - assets/images/blue tick.png
+    
 
