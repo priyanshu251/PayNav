@@ -96,7 +96,7 @@ class WinnersTab extends StatelessWidget {
               ),
               Text(
                 '2',
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       color: const Color(0xFF99B6FF),
                     ),
               ),
@@ -165,7 +165,7 @@ class WinnersTab extends StatelessWidget {
               ),
               Text(
                 '3',
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       color: const Color(0xFF99B6FF),
                     ),
               ),

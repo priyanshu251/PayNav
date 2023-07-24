@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pay_nav_project/widgets/stack_header.dart';
+import 'package:pay_nav_project/widgets/prize_tile.dart';
+import 'package:pay_nav_project/widgets/rankers_list.dart';
 
 class LeaderBoard extends StatelessWidget {
   const LeaderBoard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
+    // double w = MediaQuery.of(context).size.width;
     dynamic rankers = [
       {
         "name": "Raja Reddy",
@@ -97,108 +99,93 @@ class LeaderBoard extends StatelessWidget {
           child: Column(
             children: [
               const StackHeader(),
-              // Text('data'),
-              ListView.builder(
-                itemCount: 7,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: ((context, index) {
-                  return Container(
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 10),
-                    height: 83,
-                    width: w * 0.904,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF4ECFF),
-                      borderRadius: BorderRadius.circular(23),
-                    ),
-                    child: Row(
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              (index + 4).toString(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(fontWeight: FontWeight.w400),
-                            ),
-                            rankers[index + 3]['triangle']
-                                ? Image.asset(
-                                    'assets/images/green triangle.png',
-                                    cacheHeight: 8,
-                                    cacheWidth: 10)
-                                : Image.asset('assets/images/red triangle.png',
-                                    cacheHeight: 8, cacheWidth: 10),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        Stack(
-                          children: [
-                            const SizedBox(
-                              height: 70,
-                              width: 75,
-                            ),
-                            Container(
-                              height: 57,
-                              width: 57,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                      rankers[index + 3]['profile_url']),
-                                ),
-                              ),
-                              clipBehavior: Clip.antiAlias,
-                            ),
-                            rankers[index + 3]['verified']
-                                ? Positioned(
-                                    bottom: 0,
-                                    right: 0,
-                                    child: Image.asset(
-                                      'assets/images/blue tick.png',
-                                      height: 25,
-                                      width: 25,
-                                    ),
-                                  )
-                                : Positioned(
-                                    bottom: 0,
-                                    right: 0,
-                                    child: Container(
-                                      height: 25,
-                                      width: 25,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Color(0xFFF4ECFF),
-                                      ),
-                                    ),
-                                  ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(rankers[index + 3]['name']),
-                        const Spacer(),
-                        Text(
-                          rankers[index + 3]['points'],
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge!
-                              .copyWith(fontWeight: FontWeight.w400),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
-              ),
+              RankersList(rankers: rankers),
               const SizedBox(
                 height: 6,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  children: [
+                    Text(
+                      'Rank',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(fontWeight: FontWeight.w600, fontSize: 17),
+                    ),
+                    const Spacer(),
+                    Text(
+                      'Prizes',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(fontWeight: FontWeight.w600, fontSize: 17),
+                    ),
+                  ],
+                ),
+              ),
+              const PrizeTile(
+                rankImage: 'assets/images/crown1.png',
+                rank: '1',
+                prizeImage: 'assets/images/gold.png',
+                prizeName: 'Gold',
+                prizeValue: '1,00,000',
+              ),
+              const PrizeTile(
+                rankImage: 'assets/images/rank 2.png',
+                rank: '2',
+                prizeImage: 'assets/images/gold.png',
+                prizeName: 'Gold',
+                prizeValue: '50,000',
+              ),
+              const PrizeTile(
+                rankImage: 'assets/images/rank 3.png',
+                rank: '3',
+                prizeImage: 'assets/images/amazon.png',
+                prizeName: 'Voucher',
+                prizeValue: '10,000',
+              ),
+              const PrizeTile(
+                rankImage: 'assets/images/green badge.png',
+                rank: '4 - 10',
+                prizeImage: 'assets/images/swiggy.png',
+                prizeName: 'Voucher',
+                prizeValue: '1,00,000',
+              ),
+              const PrizeTile(
+                rankImage: 'assets/images/blue star.png',
+                rank: '11 - 100',
+                prizeImage: 'assets/images/gold.png',
+                prizeName: 'Gold',
+                prizeValue: '10 mg',
+              ),
+              const PrizeTile(
+                rankImage: 'assets/images/yellow badge.png',
+                rank: '100 - 500',
+                prizeImage: 'assets/images/gold.png',
+                prizeName: 'Gold',
+                prizeValue: '1 mg',
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 40.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Made with Golden ',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(color: Colors.grey[800], fontSize: 17),
+                    ),
+                    Image.asset(
+                      'assets/images/heart.png',
+                      height: 23,
+                      width: 25,
+                    )
+                  ],
+                ),
               ),
             ],
           ),
