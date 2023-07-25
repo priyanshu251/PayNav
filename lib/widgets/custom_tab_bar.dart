@@ -25,11 +25,12 @@ class _TabBarAndTabBarViewState extends State<TabBarAndTabBarView>
 
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Container(
           padding: const EdgeInsets.all(8),
-          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
@@ -60,7 +61,7 @@ class _TabBarAndTabBarViewState extends State<TabBarAndTabBarView>
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: SizedBox(
-            height: 300, //contraining height of tab bar view
+            height: 290, //contraining height of tab bar view
             child: TabBarView(
               controller: tabController,
               children: const [

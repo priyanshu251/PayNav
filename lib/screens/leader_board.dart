@@ -20,9 +20,12 @@ class LeaderBoard extends StatelessWidget {
           child: Column(
             children: [
               const StackHeader(),
+              const SizedBox(
+                height: 8,
+              ),
               RankersList(rankers: rankers),
               const SizedBox(
-                height: 6,
+                height: 18,
               ),
               const BottomTabBar(),
               Padding(
