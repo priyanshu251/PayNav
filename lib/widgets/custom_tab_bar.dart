@@ -60,7 +60,7 @@ class _TabBarAndTabBarViewState extends State<TabBarAndTabBarView>
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: SizedBox(
-            height: 300,
+            height: 300, //contraining height of tab bar view
             child: TabBarView(
               controller: tabController,
               children: const [

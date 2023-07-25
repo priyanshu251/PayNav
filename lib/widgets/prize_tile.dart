@@ -17,6 +17,7 @@ class PrizeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
@@ -31,33 +32,41 @@ class PrizeTile extends StatelessWidget {
               const SizedBox(
                 width: 5,
               ),
-              Text(rank,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(fontWeight: FontWeight.w400)),
+              Text(
+                rank,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(fontWeight: FontWeight.w400),
+              ),
               const Spacer(),
-              Image.asset(
-                prizeImage,
-                height: 25,
-                width: 25,
-              ),
-              Text(
-                prizeName,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: Colors.grey),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              Text(
-                prizeValue,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium!
-                    .copyWith(fontWeight: FontWeight.w500, fontSize: 16),
+              SizedBox(
+                width: w * 0.435,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      prizeImage,
+                      height: 25,
+                      width: 25,
+                    ),
+                    Text(
+                      prizeName,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.grey),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '\$$prizeValue',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(fontWeight: FontWeight.w500, fontSize: 16),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
