@@ -25,7 +25,6 @@ class _TabBarAndTabBarViewState extends State<TabBarAndTabBarView>
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Container(

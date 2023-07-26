@@ -58,10 +58,11 @@ class StackHeader extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => const HowItWorks())));
+                      showModalBottomSheet(
+                        backgroundColor: const Color(0x00FFFFFF),
+                        context: context,
+                        builder: (context) => const HowItWorks(),
+                      );
                     },
                     child: Image.asset(
                       'assets/images/settings.png',
@@ -170,7 +171,7 @@ class StackHeader extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => MyAwards())));
+                                builder: ((context) => const MyAwards())));
                       },
                       child: Text(
                         'My Status & Awards >',

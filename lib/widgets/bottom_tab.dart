@@ -80,101 +80,365 @@ class _BottomTabBarState extends State<BottomTabBar>
             height: 0,
           ),
           SizedBox(
-            height: 525, //contraining height of tab bar view
+            height: 3000, //contraining height of tab bar view
             child: TabBarView(
               controller: tabController,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      Text(
-                        'Be the first in your gang to grow up in ranks',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'Rank',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15.5),
-                          ),
-                          const Spacer(),
-                          Text(
-                            'Prizes',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15.5),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 22,
-                      ),
-                      const PrizeTile(
-                        rankImage: 'assets/images/crown1.png',
-                        rank: '1',
-                        prizeImage: 'assets/images/gold.png',
-                        prizeName: 'Gold',
-                        prizeValue: '1,00,000',
-                      ),
-                      const PrizeTile(
-                        rankImage: 'assets/images/rank 2.png',
-                        rank: '2',
-                        prizeImage: 'assets/images/gold.png',
-                        prizeName: 'Gold',
-                        prizeValue: '50,000',
-                      ),
-                      const PrizeTile(
-                        rankImage: 'assets/images/rank 3.png',
-                        rank: '3',
-                        prizeImage: 'assets/images/amazon.png',
-                        prizeName: 'Voucher',
-                        prizeValue: '10,000',
-                      ),
-                      const PrizeTile(
-                        rankImage: 'assets/images/green badge.png',
-                        rank: '4 - 10',
-                        prizeImage: 'assets/images/swiggy.png',
-                        prizeName: 'Voucher',
-                        prizeValue: '1,000',
-                      ),
-                      const PrizeTile(
-                        rankImage: 'assets/images/blue star.png',
-                        rank: '11 - 100',
-                        prizeImage: 'assets/images/gold.png',
-                        prizeName: 'Gold',
-                        prizeValue: '10 mg',
-                      ),
-                      const PrizeTile(
-                        rankImage: 'assets/images/yellow badge.png',
-                        rank: '100 - 500',
-                        prizeImage: 'assets/images/gold.png',
-                        prizeName: 'Gold',
-                        prizeValue: '1 mg',
-                      ),
-                    ],
-                  ),
-                ),
-                const Center(
-                  child: Text('Points Here'),
-                ),
+              children: const [
+                PrizesTabContent(),
+                PointsTabContent(),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class PointsTabContent extends StatelessWidget {
+  const PointsTabContent({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 12,
+          ),
+          Text(
+            'Earn more points to level up',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          Row(
+            children: [
+              Text(
+                'Achievements',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.w600, fontSize: 15.5),
+              ),
+              const Spacer(),
+              Text(
+                'Points',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.w600, fontSize: 15.5),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          Text('Only Once',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: const Color(0xFF3473E4),
+                  )),
+          const AchievementTile(
+            title: 'Joined Pav Nav',
+            subtitle: '',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: 'First Purchase',
+            subtitle: '',
+            trailing: '250',
+          ),
+          const AchievementTile(
+            title: 'KYC',
+            subtitle: '',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: 'Account Opend & Added Money',
+            subtitle: '',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: 'First Gold Purchase',
+            subtitle: '',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: 'First Voucher Purchase',
+            subtitle: '',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: 'First Direct Shopping',
+            subtitle: '',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: 'Play "The Legend of Gold, Car & Jet"',
+            subtitle: '',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: 'Add money in account through bank transfer',
+            subtitle: '( Valid only once )',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: 'First Neo Crad Transaction',
+            subtitle: '( Coming Soon* )',
+            trailing: '100',
+          ),
+          const AchievementTile(
+            title: 'First Neo Crad Offline Transaction',
+            subtitle: '( Coming Soon* )',
+            trailing: '100',
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          Text('My Network',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: const Color(0xFF3473E4),
+                  )),
+          const AchievementTile(
+            title: 'Refer a Friend',
+            subtitle: '(After first successful transaction)',
+            trailing: '10',
+          ),
+          const AchievementTile(
+            title: 'Refer a friend- on every 5th referal',
+            subtitle: '(Like 10th referal, 15th, 2th and so on...)',
+            trailing: '20',
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          Text('Once A Day',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: const Color(0xFF3473E4),
+                  )),
+          const AchievementTile(
+            title: 'Highest Gold Purchase of the Day',
+            subtitle: '(The amount should be highest of all buyers)',
+            trailing: '100',
+          ),
+          const AchievementTile(
+            title: 'Highest Voucher Purchase of the Day',
+            subtitle: '(The amount should be highest of all buyers)',
+            trailing: '150',
+          ),
+          const AchievementTile(
+            title: 'Highest Money added in Account for the Day',
+            subtitle:
+                '(The amount should be highest of all the account holders)',
+            trailing: '100',
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          Text('Unlimited',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: const Color(0xFF3473E4),
+                  )),
+          const AchievementTile(
+            title: 'Every Time Gold Purchased',
+            subtitle: '(1 points on \$20 spent, \$40 spent 2 points and so on)',
+            trailing: '1',
+          ),
+          const AchievementTile(
+            title: 'Every Time Voucher Purchased',
+            subtitle:
+                '(10 points on \$50 spent, \$100 spent 20 points and so on)',
+            trailing: '10',
+          ),
+          const AchievementTile(
+            title: 'Every Time Money added to Account',
+            subtitle:
+                '(1 points on \$50 spent, \$100 spent 2 points and so on)',
+            trailing: '1',
+          ),
+          const AchievementTile(
+            title: 'Every Time Direct Shopping',
+            subtitle: '',
+            trailing: '10',
+          ),
+          const AchievementTile(
+            title: 'Every Online Transaction made with Neo Card',
+            subtitle: '(Coming Soon*)',
+            trailing: '20',
+          ),
+          const AchievementTile(
+            title: 'Every Offline Transaction made with Neo Card',
+            subtitle: '(Coming Soon*)',
+            trailing: '30',
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          Text('Growth Challenges',
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: const Color(0xFF3473E4),
+                  )),
+          const AchievementTile(
+            title: '7 Days Gold Challenge',
+            subtitle: '(7 days continuous)',
+            trailing: '50',
+          ),
+          const AchievementTile(
+            title: '7 Days Voucher Challenge',
+            subtitle: '(7 days continuous)',
+            trailing: '150',
+          ),
+          const AchievementTile(
+            title: '7 Days Neo Card Challenge',
+            subtitle: '(Coming Soon, 7 days continuous)',
+            trailing: '100',
+          ),
+          const AchievementTile(
+            title: '30 Days Gold Challenge',
+            subtitle: '(Min amount \$10, 30 days continuous)',
+            trailing: '150',
+          ),
+          const AchievementTile(
+            title: '30 Days Voucher Challenge',
+            subtitle: '(30 days continuous)',
+            trailing: '500',
+          ),
+          const AchievementTile(
+            title: '30 Days Neo Card Challenge',
+            subtitle: '(Coming Soon, 30 days continuous)',
+            trailing: '200',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AchievementTile extends StatelessWidget {
+  const AchievementTile({
+    Key? key,
+    required this.title,
+    this.subtitle,
+    this.trailing,
+  }) : super(key: key);
+
+  final String title;
+  final String? subtitle;
+  final String? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          dense: true,
+          title: Text(title, style: Theme.of(context).textTheme.bodyMedium),
+          subtitle:
+              Text(subtitle!, style: Theme.of(context).textTheme.bodySmall),
+          trailing: Text(trailing!),
+        ),
+        const Divider(
+          height: 0,
+          thickness: 1.5,
+          indent: 13,
+          endIndent: 13,
+        ),
+      ],
+    );
+  }
+}
+
+class PrizesTabContent extends StatelessWidget {
+  const PrizesTabContent({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 12,
+          ),
+          Text(
+            'Be the first in your gang to grow up in ranks',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          Row(
+            children: [
+              Text(
+                'Rank',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.w600, fontSize: 15.5),
+              ),
+              const Spacer(),
+              Text(
+                'Prizes',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.w600, fontSize: 15.5),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 22,
+          ),
+          const PrizeTile(
+            rankImage: 'assets/images/crown1.png',
+            rank: '1',
+            prizeImage: 'assets/images/gold.png',
+            prizeName: 'Gold',
+            prizeValue: '1,00,000',
+          ),
+          const PrizeTile(
+            rankImage: 'assets/images/rank 2.png',
+            rank: '2',
+            prizeImage: 'assets/images/gold.png',
+            prizeName: 'Gold',
+            prizeValue: '50,000',
+          ),
+          const PrizeTile(
+            rankImage: 'assets/images/rank 3.png',
+            rank: '3',
+            prizeImage: 'assets/images/amazon.png',
+            prizeName: 'Voucher',
+            prizeValue: '10,000',
+          ),
+          const PrizeTile(
+            rankImage: 'assets/images/green badge.png',
+            rank: '4 - 10',
+            prizeImage: 'assets/images/swiggy.png',
+            prizeName: 'Voucher',
+            prizeValue: '1,000',
+          ),
+          const PrizeTile(
+            rankImage: 'assets/images/blue star.png',
+            rank: '11 - 100',
+            prizeImage: 'assets/images/gold.png',
+            prizeName: 'Gold',
+            prizeValue: '10 mg',
+          ),
+          const PrizeTile(
+            rankImage: 'assets/images/yellow badge.png',
+            rank: '100 - 500',
+            prizeImage: 'assets/images/gold.png',
+            prizeName: 'Gold',
+            prizeValue: '1 mg',
           ),
         ],
       ),
