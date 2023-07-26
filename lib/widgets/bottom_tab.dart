@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pay_nav_project/widgets/prize_tile.dart';
+import 'package:pay_nav_project/screens/personalised_challenge_&_Awards.dart';
 
 class BottomTabBar extends StatefulWidget {
   const BottomTabBar({super.key});
@@ -80,7 +81,7 @@ class _BottomTabBarState extends State<BottomTabBar>
             height: 0,
           ),
           SizedBox(
-            height: 3000, //contraining height of tab bar view
+            height: 2300, //contraining height of tab bar view
             child: TabBarView(
               controller: tabController,
               children: const [
@@ -102,22 +103,25 @@ class PointsTabContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 12,
-          ),
-          Text(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(
+          height: 12,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text(
             'Earn more points to level up',
             style: Theme.of(context).textTheme.bodySmall,
           ),
-          const SizedBox(
-            height: 24,
-          ),
-          Row(
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Row(
             children: [
               Text(
                 'Achievements',
@@ -136,186 +140,219 @@ class PointsTabContent extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 24,
-          ),
-          Text('Only Once',
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text('Only Once',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: const Color(0xFF3473E4),
                   )),
-          const AchievementTile(
-            title: 'Joined Pav Nav',
-            subtitle: '',
-            trailing: '50',
-          ),
-          const AchievementTile(
-            title: 'First Purchase',
-            subtitle: '',
-            trailing: '250',
-          ),
-          const AchievementTile(
-            title: 'KYC',
-            subtitle: '',
-            trailing: '50',
-          ),
-          const AchievementTile(
-            title: 'Account Opend & Added Money',
-            subtitle: '',
-            trailing: '50',
-          ),
-          const AchievementTile(
-            title: 'First Gold Purchase',
-            subtitle: '',
-            trailing: '50',
-          ),
-          const AchievementTile(
-            title: 'First Voucher Purchase',
-            subtitle: '',
-            trailing: '50',
-          ),
-          const AchievementTile(
-            title: 'First Direct Shopping',
-            subtitle: '',
-            trailing: '50',
-          ),
-          const AchievementTile(
-            title: 'Play "The Legend of Gold, Car & Jet"',
-            subtitle: '',
-            trailing: '50',
-          ),
-          const AchievementTile(
-            title: 'Add money in account through bank transfer',
-            subtitle: '( Valid only once )',
-            trailing: '50',
-          ),
-          const AchievementTile(
-            title: 'First Neo Crad Transaction',
-            subtitle: '( Coming Soon* )',
-            trailing: '100',
-          ),
-          const AchievementTile(
-            title: 'First Neo Crad Offline Transaction',
-            subtitle: '( Coming Soon* )',
-            trailing: '100',
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          Text('My Network',
+        ),
+        const AchievementTile(
+          title: 'Joined Pav Nav',
+          subtitle: '',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: 'First Purchase',
+          subtitle: '',
+          trailing: '250',
+        ),
+        const AchievementTile(
+          title: 'KYC',
+          subtitle: '',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: 'Account Opend & Added Money',
+          subtitle: '',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: 'First Gold Purchase',
+          subtitle: '',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: 'First Voucher Purchase',
+          subtitle: '',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: 'First Direct Shopping',
+          subtitle: '',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: 'Play "The Legend of Gold, Car & Jet"',
+          subtitle: '',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: 'Add money in account through bank transfer',
+          subtitle: '( Valid only once )',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: 'First Neo Crad Transaction',
+          subtitle: '( Coming Soon* )',
+          trailing: '100',
+        ),
+        const AchievementTile(
+          title: 'First Neo Crad Offline Transaction',
+          subtitle: '( Coming Soon* )',
+          trailing: '100',
+        ),
+        const SizedBox(
+          height: 32,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text('My Network',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: const Color(0xFF3473E4),
                   )),
-          const AchievementTile(
-            title: 'Refer a Friend',
-            subtitle: '(After first successful transaction)',
-            trailing: '10',
-          ),
-          const AchievementTile(
-            title: 'Refer a friend- on every 5th referal',
-            subtitle: '(Like 10th referal, 15th, 2th and so on...)',
-            trailing: '20',
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          Text('Once A Day',
+        ),
+        const AchievementTile(
+          title: 'Refer a Friend',
+          subtitle: '(After first successful transaction)',
+          trailing: '10',
+        ),
+        const AchievementTile(
+          title: 'Refer a friend- on every 5th referal',
+          subtitle: '(Like 10th referal, 15th, 2th and so on...)',
+          trailing: '20',
+        ),
+        const SizedBox(
+          height: 32,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text('Once A Day',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: const Color(0xFF3473E4),
                   )),
-          const AchievementTile(
-            title: 'Highest Gold Purchase of the Day',
-            subtitle: '(The amount should be highest of all buyers)',
-            trailing: '100',
-          ),
-          const AchievementTile(
-            title: 'Highest Voucher Purchase of the Day',
-            subtitle: '(The amount should be highest of all buyers)',
-            trailing: '150',
-          ),
-          const AchievementTile(
-            title: 'Highest Money added in Account for the Day',
-            subtitle:
-                '(The amount should be highest of all the account holders)',
-            trailing: '100',
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          Text('Unlimited',
+        ),
+        const AchievementTile(
+          title: 'Highest Gold Purchase of the Day',
+          subtitle: '(The amount should be highest of all buyers)',
+          trailing: '100',
+        ),
+        const AchievementTile(
+          title: 'Highest Voucher Purchase of the Day',
+          subtitle: '(The amount should be highest of all buyers)',
+          trailing: '150',
+        ),
+        const AchievementTile(
+          title: 'Highest Money added in Account for the Day',
+          subtitle: '(The amount should be highest of all the account holders)',
+          trailing: '100',
+        ),
+        const SizedBox(
+          height: 32,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text('Unlimited',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: const Color(0xFF3473E4),
                   )),
-          const AchievementTile(
-            title: 'Every Time Gold Purchased',
-            subtitle: '(1 points on \$20 spent, \$40 spent 2 points and so on)',
-            trailing: '1',
-          ),
-          const AchievementTile(
-            title: 'Every Time Voucher Purchased',
-            subtitle:
-                '(10 points on \$50 spent, \$100 spent 20 points and so on)',
-            trailing: '10',
-          ),
-          const AchievementTile(
-            title: 'Every Time Money added to Account',
-            subtitle:
-                '(1 points on \$50 spent, \$100 spent 2 points and so on)',
-            trailing: '1',
-          ),
-          const AchievementTile(
-            title: 'Every Time Direct Shopping',
-            subtitle: '',
-            trailing: '10',
-          ),
-          const AchievementTile(
-            title: 'Every Online Transaction made with Neo Card',
-            subtitle: '(Coming Soon*)',
-            trailing: '20',
-          ),
-          const AchievementTile(
-            title: 'Every Offline Transaction made with Neo Card',
-            subtitle: '(Coming Soon*)',
-            trailing: '30',
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          Text('Growth Challenges',
+        ),
+        const AchievementTile(
+          title: 'Every Time Gold Purchased',
+          subtitle: '(1 points on \$20 spent, \$40 spent 2 points and so on)',
+          trailing: '1',
+        ),
+        const AchievementTile(
+          title: 'Every Time Voucher Purchased',
+          subtitle:
+              '(10 points on \$50 spent, \$100 spent 20 points and so on)',
+          trailing: '10',
+        ),
+        const AchievementTile(
+          title: 'Every Time Money added to Account',
+          subtitle: '(1 points on \$50 spent, \$100 spent 2 points and so on)',
+          trailing: '1',
+        ),
+        const AchievementTile(
+          title: 'Every Time Direct Shopping',
+          subtitle: '',
+          trailing: '10',
+        ),
+        const AchievementTile(
+          title: 'Every Online Transaction made with Neo Card',
+          subtitle: '(Coming Soon*)',
+          trailing: '20',
+        ),
+        const AchievementTile(
+          title: 'Every Offline Transaction made with Neo Card',
+          subtitle: '(Coming Soon*)',
+          trailing: '30',
+        ),
+        const SizedBox(
+          height: 32,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text('Growth Challenges',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: const Color(0xFF3473E4),
                   )),
-          const AchievementTile(
-            title: '7 Days Gold Challenge',
-            subtitle: '(7 days continuous)',
-            trailing: '50',
+        ),
+        const AchievementTile(
+          title: '7 Days Gold Challenge',
+          subtitle: '(7 days continuous)',
+          trailing: '50',
+        ),
+        const AchievementTile(
+          title: '7 Days Voucher Challenge',
+          subtitle: '(7 days continuous)',
+          trailing: '150',
+        ),
+        const AchievementTile(
+          title: '7 Days Neo Card Challenge',
+          subtitle: '(Coming Soon, 7 days continuous)',
+          trailing: '100',
+        ),
+        const AchievementTile(
+          title: '30 Days Gold Challenge',
+          subtitle: '(Min amount \$10, 30 days continuous)',
+          trailing: '150',
+        ),
+        const AchievementTile(
+          title: '30 Days Voucher Challenge',
+          subtitle: '(30 days continuous)',
+          trailing: '500',
+        ),
+        const AchievementTile(
+          title: '30 Days Neo Card Challenge',
+          subtitle: '(Coming Soon, 30 days continuous)',
+          trailing: '200',
+        ),
+        const SizedBox(
+          height: 100,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: TextButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => const ChallengesAndAwards())));
+            },
+            child: Text(
+                'There are also points on personalised Challenges & Awards >',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: const Color(0xFF3473E4),
+                    )),
           ),
-          const AchievementTile(
-            title: '7 Days Voucher Challenge',
-            subtitle: '(7 days continuous)',
-            trailing: '150',
-          ),
-          const AchievementTile(
-            title: '7 Days Neo Card Challenge',
-            subtitle: '(Coming Soon, 7 days continuous)',
-            trailing: '100',
-          ),
-          const AchievementTile(
-            title: '30 Days Gold Challenge',
-            subtitle: '(Min amount \$10, 30 days continuous)',
-            trailing: '150',
-          ),
-          const AchievementTile(
-            title: '30 Days Voucher Challenge',
-            subtitle: '(30 days continuous)',
-            trailing: '500',
-          ),
-          const AchievementTile(
-            title: '30 Days Neo Card Challenge',
-            subtitle: '(Coming Soon, 30 days continuous)',
-            trailing: '200',
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -334,22 +371,29 @@ class AchievementTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          dense: true,
-          title: Text(title, style: Theme.of(context).textTheme.bodyMedium),
-          subtitle:
-              Text(subtitle!, style: Theme.of(context).textTheme.bodySmall),
-          trailing: Text(trailing!),
-        ),
-        const Divider(
-          height: 0,
-          thickness: 1.5,
-          indent: 13,
-          endIndent: 13,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+      child: Column(
+        children: [
+          ListTile(
+            dense: true,
+            title: Text(title, style: Theme.of(context).textTheme.bodyMedium),
+            subtitle:
+                Text(subtitle!, style: Theme.of(context).textTheme.bodySmall),
+            trailing: Text(trailing!,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+          ),
+          const Divider(
+            height: 0,
+            thickness: 1,
+            indent: 14.5,
+            endIndent: 14.5,
+          ),
+        ],
+      ),
     );
   }
 }

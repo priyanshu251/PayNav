@@ -14,7 +14,7 @@ class HowItWorks extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         color: const Color.fromARGB(255, 10, 10, 10),
       ),
-      child: Column(
+      child: Wrap(
         children: [
           Row(
             children: [
@@ -54,7 +54,7 @@ class HowItWorks extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 30,
+            height: 60,
           ),
           Points(
             unhighlighted1: 'At the bottom of the page you can access the ',
@@ -81,6 +81,9 @@ class HowItWorks extends StatelessWidget {
             unhighlighted1:
                 'Points will be given to unlocked Awards & Challenges accepted & succesfully completed.',
           ),
+          const SizedBox(
+            height: 60,
+          )
         ],
       ),
     );
