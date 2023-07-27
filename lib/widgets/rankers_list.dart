@@ -17,7 +17,8 @@ class RankersList extends StatelessWidget {
       itemBuilder: ((context, index) {
         return Container(
           margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+          padding:
+              const EdgeInsets.only(right: 20, top: 10, bottom: 10, left: 15),
           height: 83,
           //width: w * 0.904,
           width: double.infinity,
@@ -30,12 +31,18 @@ class RankersList extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    (index + 4).toString(),
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge!
-                        .copyWith(fontWeight: FontWeight.w400),
+                  SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: FittedBox(
+                      child: Text(
+                        (index + 4).toString(),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(fontWeight: FontWeight.w400),
+                      ),
+                    ),
                   ),
                   rankers[index + 3]['triangle']
                       ? Image.asset('assets/images/green triangle.png',

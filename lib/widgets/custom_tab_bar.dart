@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:pay_nav_project/provider.dart';
 
 class TabBarAndTabBarView extends StatefulWidget {
   const TabBarAndTabBarView({super.key});
@@ -83,6 +85,7 @@ class WinnersTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    dynamic rankers = Provider.of<UsersData>(context).data;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -102,15 +105,15 @@ class WinnersTab extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(6.0),
-                child: Image.asset(
-                  'assets/images/green triangle.png',
-                  cacheHeight: 8,
-                  cacheWidth: 10,
-                ),
+                child: rankers[1]['triangle']
+                    ? Image.asset('assets/images/green triangle.png',
+                        cacheHeight: 8, cacheWidth: 10)
+                    : Image.asset('assets/images/red triangle.png',
+                        cacheHeight: 8, cacheWidth: 10),
               ),
-              Image.asset('assets/images/runner up.png'),
+              Image.asset(rankers[1]['profile_url']),
               Text(
-                '7260',
+                rankers[1]['points'],
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                       color: const Color(0xFF99B6FF),
                     ),
@@ -119,7 +122,7 @@ class WinnersTab extends StatelessWidget {
                 height: 8,
               ),
               Text(
-                'Natasha Chowdary',
+                rankers[1]['name'],
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
@@ -134,23 +137,39 @@ class WinnersTab extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/winner.png'),
+              Image.asset(rankers[0]['profile_url']),
               Text(
-                '8370',
+                rankers[0]['points'],
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                       color: const Color(0xFF99B6FF),
                     ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              Text(
-                'Raja Reddy',
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall!
-                    .copyWith(color: Colors.white),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    rankers[0]['name'],
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall!
+                        .copyWith(color: Colors.white),
+                  ),
+                  rankers[0]['verified']
+                      ? Image.asset(
+                          'assets/images/blue tick.png',
+                          height: 25,
+                          width: 25,
+                        )
+                      : Container(
+                          height: 25,
+                          width: 25,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(0xFF2A12CC),
+                          ),
+                        ),
+                ],
               ),
             ],
           ),
@@ -171,15 +190,15 @@ class WinnersTab extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(6.0),
-                child: Image.asset(
-                  'assets/images/red triangle.png',
-                  cacheHeight: 8,
-                  cacheWidth: 10,
-                ),
+                child: rankers[2]['triangle']
+                    ? Image.asset('assets/images/green triangle.png',
+                        cacheHeight: 8, cacheWidth: 10)
+                    : Image.asset('assets/images/red triangle.png',
+                        cacheHeight: 8, cacheWidth: 10),
               ),
-              Image.asset('assets/images/second runner up.png'),
+              Image.asset(rankers[2]['profile_url']),
               Text(
-                '6260',
+                rankers[2]['points'],
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                       color: const Color(0xFF99B6FF),
                     ),
@@ -188,7 +207,7 @@ class WinnersTab extends StatelessWidget {
                 height: 8,
               ),
               Text(
-                'Samvibhan Singh',
+                rankers[1]['name'],
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme

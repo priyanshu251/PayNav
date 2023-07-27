@@ -22,7 +22,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           {
             "name": "Raja Reddy",
             "gender": true,
-            "profile_url": "assets/images/boy_avatar2.png",
+            "profile_url": "assets/images/winner.png",
             "points": "8370",
             "triangle": true,
             "verified": true
@@ -30,7 +30,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           {
             "name": "Natasha Chowdary",
             "gender": false,
-            "profile_url": "assets/images/girls_avatar2.png",
+            "profile_url": "assets/images/runner up.png",
             "points": "7260",
             "triangle": true,
             "verified": false
@@ -38,7 +38,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           {
             "name": "Sambhivan Singh",
             "gender": false,
-            "profile_url": "assets/images/girls_avatar1.png",
+            "profile_url": "assets/images/second runner up.png",
             "points": "6260",
             "triangle": false,
             "verified": false
