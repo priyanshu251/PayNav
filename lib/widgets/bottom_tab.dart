@@ -12,25 +12,35 @@ class BottomTabBar extends StatefulWidget {
 class _BottomTabBarState extends State<BottomTabBar>
     with TickerProviderStateMixin {
   late TabController tabController;
+  double tabBarViewHeight = 600;
 
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
+    tabController.addListener(onTabChanged);
     super.initState();
   }
 
   @override
   void dispose() {
     super.dispose();
+    tabController.removeListener(onTabChanged);
     tabController.dispose();
+  }
+
+  void onTabChanged() {
+    setState(() {
+      tabBarViewHeight = (tabController.index == 0) ? 600 : 2200;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    tabBarViewHeight = (tabController.index == 0) ? 600 : 2200;
     double w = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
-      child: Column(
+      child: Wrap(
         children: [
           Row(
             children: [
@@ -80,14 +90,28 @@ class _BottomTabBarState extends State<BottomTabBar>
             color: Color(0xFF3473E4),
             height: 0,
           ),
-          SizedBox(
-            height: 2300, //contraining height of tab bar view
-            child: TabBarView(
-              controller: tabController,
-              children: const [
-                PrizesTabContent(),
-                PointsTabContent(),
-              ],
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 200),
+            transitionBuilder: (child, animation) {
+              return FadeTransition(
+                opacity: animation,
+                child: SizeTransition(
+                  sizeFactor: animation,
+                  child: child,
+                ),
+              );
+            },
+            child: SizedBox(
+              key: ValueKey<int>(tabController.index),
+              height: (tabController.index == 0) ? 600 : 2200,
+              child: TabBarView(
+                controller: tabController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  PrizesTabContent(),
+                  PointsTabContent(),
+                ],
+              ),
             ),
           ),
         ],
@@ -333,7 +357,7 @@ class PointsTabContent extends StatelessWidget {
           trailing: '200',
         ),
         const SizedBox(
-          height: 100,
+          height: 50,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
