@@ -36,7 +36,7 @@ class _BottomTabBarState extends State<BottomTabBar>
 
   @override
   Widget build(BuildContext context) {
-    tabBarViewHeight = (tabController.index == 0) ? 600 : 2200;
+    tabBarViewHeight = (tabController.index == 0) ? 500 : 2200;
     double w = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
@@ -103,7 +103,7 @@ class _BottomTabBarState extends State<BottomTabBar>
             },
             child: SizedBox(
               key: ValueKey<int>(tabController.index),
-              height: (tabController.index == 0) ? 600 : 2200,
+              height: (tabController.index == 0) ? 500 : 2200,
               child: TabBarView(
                 controller: tabController,
                 physics: const NeverScrollableScrollPhysics(),

@@ -101,7 +101,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           },
         ];
         Provider.of<UsersData>(context, listen: false).data = rankers;
-        Navigator.push(context,
+        Navigator.pushReplacement(context,
             MaterialPageRoute(builder: ((context) => const LeaderBoard())));
       },
     );
