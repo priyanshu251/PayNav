@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pay_nav_project/widgets/prize_tile.dart';
 import 'package:pay_nav_project/screens/personalised_challenge_&_Awards.dart';
+import 'package:pay_nav_project/widgets/achievement_tile.dart';
 
 class BottomTabBar extends StatefulWidget {
   const BottomTabBar({super.key});
@@ -377,47 +378,6 @@ class PointsTabContent extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class AchievementTile extends StatelessWidget {
-  const AchievementTile({
-    Key? key,
-    required this.title,
-    this.subtitle,
-    this.trailing,
-  }) : super(key: key);
-
-  final String title;
-  final String? subtitle;
-  final String? trailing;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-      child: Column(
-        children: [
-          ListTile(
-            dense: true,
-            title: Text(title, style: Theme.of(context).textTheme.bodyMedium),
-            subtitle:
-                Text(subtitle!, style: Theme.of(context).textTheme.bodySmall),
-            trailing: Text(trailing!,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(fontWeight: FontWeight.bold)),
-          ),
-          const Divider(
-            height: 0,
-            thickness: 1,
-            indent: 14.5,
-            endIndent: 14.5,
-          ),
-        ],
-      ),
     );
   }
 }
